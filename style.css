@@ -4,8 +4,8 @@ body {
   font-family: 'PT Sans', system-ui, sans-serif;
   text-align: center;
   padding: 4rem;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #f5f5f5;
+  color: #111111;
 }
 
 .logo {
@@ -42,7 +42,7 @@ p {
 }
 
 a {
-  color: #66b3ff;
+  color: #0077cc;
   text-decoration: none;
   font-weight: 400;
 }
