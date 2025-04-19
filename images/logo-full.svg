@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1024" height="256" viewBox="0 0 1024 256" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Robot face -->
-  <g transform="translate(32,32)">
+  <g transform="translate(32,48)">
     <!-- Square head with rounded corners -->
-    <rect x="0" y="0" width="192" height="192" rx="24" fill="#0077CC"/>
+    <rect x="0" y="0" width="160" height="160" rx="16" fill="#0077CC"/>
     <!-- Antenna -->
-    <rect x="84" y="-32" width="24" height="48" fill="#0077CC"/>
+    <rect x="68" y="-24" width="24" height="24" fill="#0077CC"/>
     <!-- Eyes -->
-    <circle cx="64" cy="96" r="12" fill="#111111"/>
-    <circle cx="128" cy="96" r="12" fill="#111111"/>
-    <!-- Smile -->
-    <path d="M64 144 C64 144 96 160 128 144" stroke="#111111" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="53" cy="64" r="8" fill="#111111"/>
+    <circle cx="107" cy="64" r="8" fill="#111111"/>
+    <!-- Smile - simple curved line -->
+    <path d="M53 96 Q80 116 107 96" stroke="#111111" stroke-width="8" stroke-linecap="round" fill="none"/>
   </g>
   <!-- Text -->
-  <g transform="translate(280,32)">
-    <text x="0" y="148" font-family="PT Sans" font-size="120" font-weight="700" fill="#111111">robot.health</text>
-    <text x="700" y="208" font-family="PT Sans" font-size="24" font-weight="400" fill="#111111">TM</text>
+  <g transform="translate(224,48)">
+    <text x="0" y="120" font-family="Arial, sans-serif" font-size="100" font-weight="700" fill="#111111">robot.health</text>
+    <text x="620" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#111111">TM</text>
   </g>
 </svg> 
