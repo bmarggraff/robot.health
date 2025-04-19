@@ -1,14 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'PT Sans', system-ui, sans-serif;
   text-align: center;
   padding: 4rem;
-  background-color: #ffffff;
-  color: #111;
+  background-color: #000000;
+  color: #ffffff;
 }
+
+.logo {
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  height: 48px;
+  width: auto;
+}
+
+.logo-icon {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .logo-full {
+    display: none;
+  }
+  
+  .logo-icon {
+    display: inline;
+  }
+}
+
+h1 {
+  font-weight: 700;
+  font-style: normal;
+}
+
+p {
+  font-weight: 400;
+  font-style: normal;
+}
+
 a {
-  color: #0077cc;
+  color: #66b3ff;
   text-decoration: none;
+  font-weight: 400;
 }
+
 a:hover {
   text-decoration: underline;
 }
