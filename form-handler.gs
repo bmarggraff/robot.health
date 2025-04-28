@@ -19,18 +19,30 @@ function doPost(e) {
     'Access-Control-Max-Age': '3600'
   };
 
-  // Handle preflight OPTIONS request
-  if (e.postData.type === "text/plain" || e.postData.type === "application/x-www-form-urlencoded") {
-    return ContentService.createTextOutput(JSON.stringify({'status': 'success'}))
-      .setMimeType(ContentService.MimeType.JSON)
-      .setHeaders(headers);
-  }
-
   try {
-    // Parse the JSON payload
-    const data = JSON.parse(e.postData.contents);
-    const email = data.email;
-    const message = data.message || 'No message provided';
+    let email, message;
+    
+    // Check if the request is JSON
+    if (e.postData.type === "application/json") {
+      const data = JSON.parse(e.postData.contents);
+      email = data.email;
+      message = data.message || 'No message provided';
+    } 
+    // Check if the request is form data
+    else if (e.postData.type === "application/x-www-form-urlencoded") {
+      const params = e.parameter;
+      email = params.email;
+      message = params.message || 'No message provided';
+    }
+    // Handle preflight OPTIONS request
+    else if (e.postData.type === "text/plain") {
+      return ContentService.createTextOutput(JSON.stringify({'status': 'success'}))
+        .setMimeType(ContentService.MimeType.JSON)
+        .setHeaders(headers);
+    }
+    else {
+      throw new Error('Unsupported content type: ' + e.postData.type);
+    }
     
     // Log the received data
     console.log('Received data:', { email, message });
