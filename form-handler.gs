@@ -14,12 +14,13 @@ function doPost(e) {
   // Handle CORS
   const headers = {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '3600'
   };
 
   // Handle preflight OPTIONS request
-  if (e.postData.type == "application/x-www-form-urlencoded") {
+  if (e.postData.type === "text/plain" || e.postData.type === "application/x-www-form-urlencoded") {
     return ContentService.createTextOutput(JSON.stringify({'status': 'success'}))
       .setMimeType(ContentService.MimeType.JSON)
       .setHeaders(headers);
