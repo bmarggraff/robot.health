@@ -9,15 +9,93 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .blog-post-tile {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .blog-post-tile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .blog-post-tile h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .blog-post-date {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-post-excerpt {
+      position: relative;
+      max-height: 150px;
+      overflow: hidden;
+    }
+    
+    .blog-post-excerpt::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
+    
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #0077cc;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .read-more:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <main>
     <div class="logo">
-      <img src="../images/logo-full.png" alt="robot.health" class="logo-full">
-      <img src="../images/logo-icon.png" alt="robot.health icon" class="logo-icon">
+      <a href="../index.html">
+        <img src="../images/logo-full.png" alt="robot.health" class="logo-full">
+        <img src="../images/logo-icon.png" alt="robot.health icon" class="logo-icon">
+      </a>
     </div>
     <h1>Blog</h1>
-    <p>Coming soon: essays and ideas on the future of care.</p>
+    
+    <div class="blog-container">
+      <a href="posts/first-post.html" target="_blank" class="blog-post-tile">
+        <h2>The Future of Healthcare</h2>
+        <div class="blog-post-date">March 19, 2024</div>
+        <div class="blog-post-excerpt">
+          <p>Healthcare is at a crossroads. As we face unprecedented challenges in delivering care to an aging population while managing rising costs and workforce shortages, technology offers both promise and complexity.</p>
+          
+          <p>At robot.health, we believe the future of healthcare lies not in replacing human caregivers, but in augmenting their capabilities. By thoughtfully integrating technology into care delivery, we can create systems that are more efficient, more personalized, and more human-centered than ever before.</p>
+          
+          <p>The key to this transformation isn't just in the technology itself, but in how we design and implement it. Every innovation must be measured against a simple question: does this make care better for both the patient and the caregiver?</p>
+        </div>
+        <span class="read-more">Read more →</span>
+      </a>
+    </div>
   </main>
 </body>
 </html>
