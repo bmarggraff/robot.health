@@ -1,9 +1,0 @@
-{
-  "name": "robot-health-contact",
-  "version": "1.0.0",
-  "description": "Contact form handler for Robot Health",
-  "main": "contact.js",
-  "dependencies": {
-    "nodemailer": "^6.9.1"
-  }
-} 

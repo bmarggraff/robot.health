@@ -90,7 +90,10 @@
       Sorry, there was an error submitting the form. Please try again.
     </div>
 
-    <form id="contact-form" class="contact-form">
+    <form id="contact-form" class="contact-form" action="https://formsubmit.co/bmarggraff@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Robot.Health Contact Form Submission">
+      <input type="hidden" name="_next" value="https://robot.health/contact.html?submitted=true">
+      <input type="hidden" name="_captcha" value="false">
       <div class="form-group">
         <label for="email">Email Address *</label>
         <input type="email" id="email" name="email" required>
@@ -115,60 +118,19 @@
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      // Hide any previous messages
-      successMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
-      
+    // Check if the form was just submitted
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+      successMessage.style.display = 'block';
+    }
+
+    form.addEventListener('submit', (e) => {
       // Disable submit button and show loading state
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
-
-      try {
-        const formData = new FormData(form);
-        const data = {
-          email: formData.get('email'),
-          message: formData.get('message') || ''
-        };
-
-        console.log('Submitting form data:', data);
-
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-
-        console.log('Response:', response);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        console.log('Result:', result);
-        
-        if (result.success) {
-          // Show success message and reset form
-          successMessage.style.display = 'block';
-          form.reset();
-        } else {
-          throw new Error(result.error || 'Submission failed');
-        }
-      } catch (error) {
-        // Show error message
-        console.error('Submission error:', error);
-        errorMessage.textContent = error.message || 'An error occurred while submitting the form. Please try again.';
-        errorMessage.style.display = 'block';
-      } finally {
-        // Re-enable submit button
-        submitButton.disabled = false;
-        submitButton.textContent = 'Send Message';
-      }
+      
+      // The form will submit normally to FormSubmit
+      // No need for custom fetch logic
     });
   </script>
 </body>
