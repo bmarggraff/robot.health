@@ -16,24 +16,24 @@
     }
     
     .blog-post-tile {
+      display: block;
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s ease;
     }
     
     .blog-post-tile:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      border-color: #0077cc;
     }
     
     .blog-post-tile h2 {
       margin-top: 0;
+      margin-bottom: 0.5rem;
       color: #333;
     }
     
@@ -45,7 +45,7 @@
     
     .blog-post-excerpt {
       position: relative;
-      max-height: 150px;
+      max-height: 100px;
       overflow: hidden;
     }
     
@@ -55,7 +55,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 60px;
+      height: 40px;
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
     }
     
@@ -64,11 +64,6 @@
       margin-top: 1rem;
       color: #0077cc;
       font-weight: 600;
-      text-decoration: none;
-    }
-    
-    .read-more:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -87,11 +82,7 @@
         <h2>Reinventing Care: From Scarcity to Abundance</h2>
         <div class="blog-post-date">March 19, 2024</div>
         <div class="blog-post-excerpt">
-          <p>Aging in place is becoming harder, not easier. The problem isn't just medical costs, health literacy, or access to specialty care—it's the lack of a trained, reliable human workforce. Millions of older adults would prefer to remain at home, but there aren't enough caregivers to support them, especially as needs increase with age, frailty, or cognitive decline. The result is delayed help, dangerous gaps, and avoidable transitions into institutional care.</p>
-          
-          <p>Historically, the only way to deliver home-based support has been through people. The marginal cost of care has always been labor—hourly wages, scheduling logistics, transportation time. That's not a criticism. It's the design constraint we've worked within for centuries. But it doesn't scale, and it's already failing to keep up.</p>
-          
-          <p>Now, for the first time, that constraint is loosening. With intelligent, always-on technology, certain forms of care—reminders, check-ins, gentle guidance, even simple conversation—can be delivered at a marginal cost closer to electricity than employment. That doesn't make people obsolete. It means the work of caregiving can be extended, supported, and made more available. The cost of delivering reassurance, structure, and continuity no longer has to scale linearly with staffing.</p>
+          <p>Aging in place is becoming harder, not easier. The problem isn't just medical costs, health literacy, or access to specialty care—it's the lack of a trained, reliable human workforce. Millions of older adults would prefer to remain at home, but there aren't enough caregivers to support them, especially as needs increase with age, frailty, or cognitive decline.</p>
         </div>
         <span class="read-more">Read more →</span>
       </a>
