@@ -135,49 +135,39 @@
 
         console.log('Submitting form data:', data);
 
-        // Use a more reliable approach for Google Apps Script
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw9Xpq_9Drr-xP3fVeUR3NZuyLgASSCka9fmf_NE7Co69GFTG_9fs5sSokA8dk5OYt_/exec';
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        console.log('Response:', response);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Result:', result);
         
-        // Create a form element to submit the data
-        const formElement = document.createElement('form');
-        formElement.method = 'POST';
-        formElement.action = scriptURL;
-        formElement.target = '_blank'; // Open in new tab to avoid navigation issues
-        
-        // Add email field
-        const emailInput = document.createElement('input');
-        emailInput.type = 'hidden';
-        emailInput.name = 'email';
-        emailInput.value = data.email;
-        formElement.appendChild(emailInput);
-        
-        // Add message field
-        const messageInput = document.createElement('input');
-        messageInput.type = 'hidden';
-        messageInput.name = 'message';
-        messageInput.value = data.message;
-        formElement.appendChild(messageInput);
-        
-        // Add form to document and submit
-        document.body.appendChild(formElement);
-        formElement.submit();
-        document.body.removeChild(formElement);
-        
-        // Show success message and reset form
-        successMessage.style.display = 'block';
-        form.reset();
-        
-        // Re-enable submit button
-        submitButton.disabled = false;
-        submitButton.textContent = 'Send Message';
-        
-        // Note: We can't get a response this way, so we assume success
-        // The user will see the success message
+        if (result.success) {
+          // Show success message and reset form
+          successMessage.style.display = 'block';
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
       } catch (error) {
         // Show error message
         console.error('Submission error:', error);
         errorMessage.textContent = error.message || 'An error occurred while submitting the form. Please try again.';
         errorMessage.style.display = 'block';
+      } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
       }
     });
   </script>
