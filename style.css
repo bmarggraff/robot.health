@@ -50,3 +50,19 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.social-links {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.social-links a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
